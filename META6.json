@@ -8,6 +8,7 @@
                     "Sparrowdo"
                   ],
   "source-type" : "git",
+  "source-url" : "https://github.com/melezhik/sparrowdo-vsts-cordova.git"
   "support" : {
     },
    "provides" : {

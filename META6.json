@@ -1,0 +1,28 @@
+{
+  "perl"        : "6.*",
+  "name"        : "Sparrowdo::VSTS::YAML::Cordova",
+  "version"     : "*",
+  "description" : "Sparrowdo module to generate VSTS yaml build definition steps for Cordova build",
+  "authors" : [ "Alexey Melezhik"],
+  "depends"     : [
+                    "Sparrowdo"
+                  ],
+  "source-type" : "git",
+  "support" : {
+    },
+   "provides" : {
+        "Sparrowdo::VSTS::YAML::Cordova" : "lib/Sparrowdo/VSTS/YAML/Cordova.pm6"
+  },
+  "resources" : [
+    "windows/build.yaml",
+    "windows/cordova-platorm-add-windows.cmd",
+    "windows/cordova-build-windows.cmd",
+    "windows/npm-install.cmd",
+    "windows/npm-install-cordova.cmd",
+    "windows/npm-run-ionic-build-prod.cmd",
+    "ios/build.yaml",
+    "ios/build.json",
+    "ios/install-cordova.sh",
+    "ios/build-cordova.sh"
+  ]
+}

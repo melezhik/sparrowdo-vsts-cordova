@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Remove OSx related code
+
 0.0.1  2018-07-27T20:10:01Z
 
     - First release

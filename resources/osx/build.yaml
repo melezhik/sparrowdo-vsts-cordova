@@ -1,6 +1,6 @@
 - bash: . '[% base_dir %]/install-cordova.sh' "\$(Build.SourcesDirectory)"
   displayName: Install dependencies and cordova
 [%- IF build %]
-- bash: . '[% base_dir %]/build-cordova-ios.sh' "\$(Build.SourcesDirectory)"
-  displayName: Build cordova for ios
+- bash: . '[% base_dir %]/build-cordova-osx.sh' "\$(Build.SourcesDirectory)"
+  displayName: Build cordova for osx
 [%- END %]

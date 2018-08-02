@@ -12,38 +12,59 @@ our sub tasks (%args) {
 
   my $os = %args<os> || 'windows';
 
+  my $build-dir = %args<build-dir> || die "usage module_run '{ ::?MODULE.^name }' ,%(build-dir => dir)";
+
+  directory "$build-dir/.cache";
+  directory "$build-dir/files";
+
   if $os eq "windows" {
+
     tasks-windows(%args);
-  } elsif $os eq "ios" {
-    tasks-ios(%args);
+
+  } elsif $os eq "ios" or $os eq "osx" {
+
+    install-cordova-deps-mac(%args);
+    install-build-json (%args);
+
+    if $os eq "ios" {
+      tasks-ios(%args);
+    } elsif $os eq "osx" {
+      tasks-osx(%args);
+    } 
+
   } else {
     die "unsupported os: $os"
   }
 
 }
 
-our sub tasks-ios (%args) {
+sub install-cordova-deps-mac (%args) {
 
-  my $build-dir = %args<build-dir> || die "usage module_run '{ ::?MODULE.^name }' ,%(build-dir => dir)";
-
-  directory "$build-dir/.cache";
-  directory "$build-dir/files";
-
-  file "$build-dir/files/build-cordova.sh", %( content => slurp %?RESOURCES<ios/build-cordova.sh>.Str );
+  my $build-dir = %args<build-dir>;
 
   template-create "$build-dir/files/install-cordova.sh", %(
-    source => ( slurp %?RESOURCES{"ios/install-cordova.sh"}.Str  ),
+    source => ( slurp %?RESOURCES{"mac/install-cordova.sh"}.Str  ),
     variables => %(
       use_ionic_build => %args<use-ionic-build>
     )
   );
+}
+
+sub install-build-json (%args) {
 
   template-create "build.json", %(
-    source => ( slurp %?RESOURCES{"ios/build.json"}.Str  ),
+    source => ( slurp %?RESOURCES{"mac/build.json"}.Str  ),
     variables => %(
       team_id => %args<team-id>
     )
   );
+}
+
+our sub tasks-ios (%args) {
+
+  my $build-dir = %args<build-dir>;
+
+  file "$build-dir/files/build-cordova-ios.sh", %( content => slurp %?RESOURCES<ios/build-cordova.sh>.Str );
 
   template-create "$build-dir/.cache/build.yaml.sample", %(
     source => ( slurp %?RESOURCES<ios/build.yaml> ),
@@ -57,12 +78,27 @@ our sub tasks-ios (%args) {
 
 }
 
+our sub tasks-osx (%args) {
+
+  my $build-dir = %args<build-dir>;
+
+  file "$build-dir/files/build-cordova-osx.sh", %( content => slurp %?RESOURCES<osx/build-cordova.sh>.Str );
+
+  template-create "$build-dir/.cache/build.yaml.sample", %(
+    source => ( slurp %?RESOURCES<osx/build.yaml> ),
+    variables => %(
+      base_dir => "$build-dir/files",
+      build => %args<build>,
+    )
+  );
+
+  bash "cat $build-dir/.cache/build.yaml.sample >> $build-dir/build.yaml"
+
+}
+
 our sub tasks-windows (%args) {
 
-  my $build-dir = %args<build-dir> || die "usage module_run '{ ::?MODULE.^name }' ,%(build-dir => dir)";
-
-  directory "$build-dir/.cache";
-  directory "$build-dir/files";
+  my $build-dir = %args<build-dir>;
 
   my @list = <
     cordova-platorm-add-windows.cmd

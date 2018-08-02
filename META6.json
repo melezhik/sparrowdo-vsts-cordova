@@ -22,10 +22,8 @@
     "windows/npm-run-ionic-build-prod.cmd",
     "ios/build.yaml",
     "ios/build-cordova.sh",
-    "osx/build.yaml",
-    "osx/build-cordova.sh",
-    "mac/build.json",
-    "mac/install-cordova.sh"
+    "ios/build.json",
+    "ios/install-cordova.sh"
   ],
   "source-type" : "git",
   "source-url" : "https://github.com/melezhik/sparrowdo-vsts-cordova.git",

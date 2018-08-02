@@ -18,51 +18,32 @@ our sub tasks (%args) {
   directory "$build-dir/files";
 
   if $os eq "windows" {
-
     tasks-windows(%args);
-
-  } elsif $os eq "ios" or $os eq "osx" {
-
-    install-cordova-deps-mac(%args);
-    install-build-json (%args);
-
-    if $os eq "ios" {
-      tasks-ios(%args);
-    } elsif $os eq "osx" {
-      tasks-osx(%args);
-    } 
-
+  } elsif $os eq "ios"  {
+    tasks-ios(%args);
   } else {
     die "unsupported os: $os"
   }
 
 }
 
-sub install-cordova-deps-mac (%args) {
+our sub tasks-ios (%args) {
 
   my $build-dir = %args<build-dir>;
 
   template-create "$build-dir/files/install-cordova.sh", %(
-    source => ( slurp %?RESOURCES{"mac/install-cordova.sh"}.Str  ),
+    source => ( slurp %?RESOURCES{"ios/install-cordova.sh"}.Str  ),
     variables => %(
       use_ionic_build => %args<use-ionic-build>
     )
   );
-}
-
-sub install-build-json (%args) {
 
   template-create "build.json", %(
-    source => ( slurp %?RESOURCES{"mac/build.json"}.Str  ),
+    source => ( slurp %?RESOURCES{"ios/build.json"}.Str  ),
     variables => %(
       team_id => %args<team-id>
     )
   );
-}
-
-our sub tasks-ios (%args) {
-
-  my $build-dir = %args<build-dir>;
 
   file "$build-dir/files/build-cordova-ios.sh", %( content => slurp %?RESOURCES<ios/build-cordova.sh>.Str );
 

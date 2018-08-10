@@ -13,6 +13,10 @@
     filename: '[% base_dir %]/prepare.cmd'
 [%- ELSE %]
 - task: BatchScript@1
+  displayName:  Remove build direcory
+  inputs:
+    filename: '[% base_dir %]/clean-build-dir.cmd'
+- task: BatchScript@1
   displayName:  Build package
   inputs:
     filename: '[% base_dir %]/build.cmd'

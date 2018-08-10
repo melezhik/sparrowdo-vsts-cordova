@@ -85,6 +85,7 @@ our sub tasks-windows (%args) {
     npm-install.cmd
     npm-install-cordova.cmd
     prepare.cmd
+    clean-build-dir.cmd
   >;
 
 

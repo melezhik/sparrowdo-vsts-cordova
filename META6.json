@@ -19,6 +19,7 @@
     "windows/prepare.cmd",
     "windows/build.cmd",
     "windows/build.yaml",
+    "windows/clean-build-dir.cmd",
     "ios/build.yaml",
     "ios/build-cordova.sh",
     "ios/build.json",

@@ -1,3 +1,3 @@
 set PATH=%PATH%;"C:\Program Files\nodejs"
 
-npm run ionic -- build 
+npm run ionic -- cordova prepare windows 

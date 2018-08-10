@@ -7,20 +7,15 @@
   displayName: Run npm install cordova
   inputs:
     filename: '[% base_dir %]/npm-install-cordova.cmd'
-[%- IF use_ionic_build %]
-- task: BatchScript@1
-  displayName: Run npm run ionic:build:prod
-  inputs:
-    filename: '[% base_dir %]/npm-run-ionic-build-prod.cmd'
-[%- END %]
-- task: BatchScript@1
-  displayName: Run cordova platorm add windows
-  inputs:
-    filename: '[% base_dir %]/cordova-platorm-add-windows.cmd'
 [%- IF build %]
 - task: BatchScript@1
-  displayName:  Run cordova build windows
+  displayName: Create vsts project 
   inputs:
-    filename: '[% base_dir %]/cordova-build-windows.cmd'
+    filename: '[% base_dir %]/prepare.cmd'
+[%- ELSE %]
+- task: BatchScript@1
+  displayName:  Build package
+  inputs:
+    filename: '[% base_dir %]/build.cmd'
 [%- END %]
 

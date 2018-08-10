@@ -82,10 +82,9 @@ our sub tasks-windows (%args) {
   my $build-dir = %args<build-dir>;
 
   my @list = <
-    cordova-platorm-add-windows.cmd
     npm-install.cmd
     npm-install-cordova.cmd
-    npm-run-ionic-build-prod.cmd
+    prepare.cmd
   >;
 
 
@@ -94,17 +93,10 @@ our sub tasks-windows (%args) {
   }
 
   
-  my @bf = %args<build-flags>.split(/\s+/);
-  my $bf;
-
-  for @bf -> $f {
-    $bf ~= "--buildFlag $f ";
-  }
-
-  template-create "$build-dir/files/cordova-build-windows.cmd", %(
-    source => ( slurp %?RESOURCES<windows/cordova-build-windows.cmd> ),
+  template-create "$build-dir/files/build.cmd", %(
+    source => ( slurp %?RESOURCES<windows/build.cmd> ),
     variables => %(
-      ms_build_opts => $bf,
+      build_arch => %args<build-arch> || "x86",
       build_configuration => %args<build-configuration> || "--debug",
     )
   );
@@ -113,7 +105,6 @@ our sub tasks-windows (%args) {
     source => ( slurp %?RESOURCES<windows/build.yaml> ),
     variables => %(
       base_dir => "$build-dir/files",
-      use_ionic_build => %args<use-ionic-build> ?? 1 !! 0,
       build => %args<build>,
     )
   );

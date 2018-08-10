@@ -14,12 +14,11 @@
     "Sparrowdo::VSTS::YAML::Cordova" : "lib/Sparrowdo/VSTS/YAML/Cordova.pm6"
   },
   "resources" : [
-    "windows/build.yaml",
-    "windows/cordova-platorm-add-windows.cmd",
-    "windows/cordova-build-windows.cmd",
     "windows/npm-install.cmd",
     "windows/npm-install-cordova.cmd",
-    "windows/npm-run-ionic-build-prod.cmd",
+    "windows/prepare.cmd",
+    "windows/build.cmd",
+    "windows/build.yaml",
     "ios/build.yaml",
     "ios/build-cordova.sh",
     "ios/build.json",

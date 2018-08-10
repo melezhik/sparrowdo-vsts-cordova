@@ -11,10 +11,9 @@ Sparrowdo module to generate VSTS yaml build definition steps for Cordova build.
     module_run "VSTS::YAML::Cordova", %( 
       build-dir => ".build",
       os => "windows", # default value
-      use-ionic-build => true, # default value
       build => True, # whether to run build command or not, default value is False
-      build-configuration => "--debug", # msbuild configuration, default value,
-      build-flags => '/p:Platform=x86 /p:AppxBundle=Always', #  msbuild build flags, default value is empty string
+      build-configuration => "--debug", # build configuration, default value  
+      build-arch => "x86" # build architecture, default value  
     );
 
     $ sparrowdo --no_sudo --local_mode

@@ -69,7 +69,7 @@ our sub tasks-osx (%args) {
     source => ( slurp %?RESOURCES<osx/build.yaml> ),
     variables => %(
       base_dir => "$build-dir/files",
-      build => %args<build>,
+      prepare_only => %args<prepare-only>,
     )
   );
 

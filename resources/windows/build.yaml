@@ -8,13 +8,13 @@
     filename: '[% base_dir %]/npm-install-cordova.cmd'
 [%- IF prepare_only %]
 - task: BatchScript@1
-  displayName:  Build package
-  inputs:
-    filename: '[% base_dir %]/build.cmd'
-[%- ELSE %]
-- task: BatchScript@1
   displayName: Create vsts project 
   inputs:
     filename: '[% base_dir %]/prepare.cmd'
+[%- ELSE %]
+- task: BatchScript@1
+  displayName:  Build package
+  inputs:
+    filename: '[% base_dir %]/build.cmd'
 [%- END %]
 

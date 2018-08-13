@@ -20,12 +20,25 @@ Note: Windows build requires ionic. This build mechanism uses ionic internally.
     $ sparrowdo --no_sudo --local_mode
 
 
-If only need to create VSTS source code, use `prepare-only` flag:
+### Visual studio project creation
+
+If only need to create VS source code, use `prepare-only` flag:
 
 
     prepare-only => True
 
 
+### MSBuild/VS configuration
+
+Use following parameter to adjust MSBuild and Visual Studio settings:
+
+    Parameter               | Meaning                            | Default value
+    ===============================================================================================================================================
+    vs-inst-dir             | Visual  Studio install directory   | C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional
+    ms-build-dir            | MS Build exe install directory     | C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin
+    make-pri-exe-full-path  | Path to MakePri.exe tool           | C:\Program Files (x86)\Windows Kits\10\bin\10.0.17134.0\x86\MakePri.exe
+    ===============================================================================================================================================
+    
 ## iOS
 
     $ cat sparrowfile

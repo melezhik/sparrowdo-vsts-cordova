@@ -13,7 +13,7 @@ Note: Windows build requires ionic. This build mechanism uses ionic internally.
     module_run "VSTS::YAML::Cordova", %( 
       build-dir => ".build",
       os => "windows", # default value
-      build-configuration => "--debug", # build configuration, default value  
+      build-configuration => "debug", # build configuration, default value  
       build-arch => "x86" # build architecture, default value  
     );
 

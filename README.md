@@ -6,6 +6,8 @@ Sparrowdo module to generate VSTS yaml build definition steps for Cordova build.
 
 ## Windows
 
+Note: Windows build requires ionic. This build mechanism uses ionic internally.
+
     $ cat sparrowfile
 
     module_run "VSTS::YAML::Cordova", %( 

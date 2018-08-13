@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Rewrite windows build to use ionic
+
 0.0.2  2018-08-02T18:21:00Z
 
     - Remove OSx related code

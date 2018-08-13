@@ -84,6 +84,7 @@ our sub tasks-windows (%args) {
   my @list = <
     npm-install.cmd
     npm-install-cordova.cmd
+    platform-add.cmd
     prepare.cmd
     clean-build-dir.cmd
   >;

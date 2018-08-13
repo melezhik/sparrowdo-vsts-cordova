@@ -13,9 +13,13 @@
     filename: '[% base_dir %]/prepare.cmd'
 [%- ELSE %]
 - task: BatchScript@1
-  displayName:  Remove build direcory
+  displayName:  Remove build directory
   inputs:
     filename: '[% base_dir %]/clean-build-dir.cmd'
+- task: BatchScript@1
+  displayName:  Add windows plaform
+  inputs:
+    filename: '[% base_dir %]/platform-add.cmd'
 - task: BatchScript@1
   displayName:  Build package
   inputs:

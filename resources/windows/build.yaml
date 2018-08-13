@@ -2,10 +2,6 @@
   displayName: Run npm install
   inputs:
     filename: '[% base_dir %]/npm-install.cmd'
-- task: BatchScript@1
-  displayName: Run npm install cordova
-  inputs:
-    filename: '[% base_dir %]/npm-install-cordova.cmd'
 [%- IF prepare_only %]
 - task: BatchScript@1
   displayName: Create vsts project 
@@ -20,6 +16,11 @@
   displayName:  Add windows plaform
   inputs:
     filename: '[% base_dir %]/platform-add.cmd'
+- task: BatchScript@1
+  displayName: Set package version
+  inputs:
+    filename: '[% base_dir %]/set-version.cmd'
+    arguments: "\$(Build.BuildId)"
 - task: BatchScript@1
   displayName:  Build package
   inputs:

@@ -18,6 +18,7 @@
     "windows/npm-install-cordova.cmd",
     "windows/prepare.cmd",
     "windows/platform-add.cmd",
+    "windows/set-version.cmd",
     "windows/build.cmd",
     "windows/build.yaml",
     "windows/clean-build-dir.cmd",

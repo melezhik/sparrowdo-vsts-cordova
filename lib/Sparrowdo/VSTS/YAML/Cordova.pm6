@@ -1,6 +1,6 @@
 use v6;
 
-unit module Sparrowdo::VSTS::YAML::Cordova:ver<0.0.5>;
+unit module Sparrowdo::VSTS::YAML::Cordova:ver<0.0.6>;
 
 use Sparrowdo;
 use Sparrowdo::Core::DSL::Bash;
@@ -68,8 +68,7 @@ our sub tasks-osx (%args) {
   template-create "$build-dir/.cache/build.yaml.sample", %(
     source => ( slurp %?RESOURCES<osx/build.yaml> ),
     variables => %(
-      base_dir => "$build-dir/files",
-      prepare_only => %args<prepare-only>,
+      base_dir => "$build-dir/files"
     )
   );
 
@@ -112,7 +111,7 @@ our sub tasks-windows (%args) {
     source => ( slurp %?RESOURCES<windows/build.yaml> ),
     variables => %(
       base_dir => "$build-dir/files",
-      build => %args<build>,
+      prepare_only => %args<prepare-only>,
     )
   );
 

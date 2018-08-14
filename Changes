@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Prepare only bug fix
+
 0.0.5  2018-08-13T19:36:27Z
 
     - Insert build number into package version

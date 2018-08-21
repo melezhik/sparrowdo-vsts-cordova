@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Install cordova, cordova-set-version, ionic implicitly so that not rely on package.json file
+
 0.0.7  2018-08-16T15:49:42-05:00
 
     - Remove OSx/iOS support

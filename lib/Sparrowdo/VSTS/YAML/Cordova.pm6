@@ -20,6 +20,7 @@ our sub tasks (%args) {
   my @list = <
     npm-install.cmd
     npm-install-cordova.cmd
+    npm-install-ionic.cmd
     platform-add.cmd
     set-version.pl
     prepare.cmd

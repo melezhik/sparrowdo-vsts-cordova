@@ -21,6 +21,7 @@ our sub tasks (%args) {
     npm-install.cmd
     npm-install-cordova.cmd
     npm-install-ionic.cmd
+    npm-install-cordova-set-version.cmd
     platform-add.cmd
     set-version.pl
     prepare.cmd

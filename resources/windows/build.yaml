@@ -17,6 +17,10 @@
     filename: '[% base_dir %]/prepare.cmd'
 [%- ELSE %]
 - task: BatchScript@1
+  displayName: Run npm install cordova-set-version
+  inputs:
+    filename: '[% base_dir %]/npm-install-cordova-set-version.cmd'
+- task: BatchScript@1
   displayName:  Remove build directory
   inputs:
     filename: '[% base_dir %]/clean-build-dir.cmd'

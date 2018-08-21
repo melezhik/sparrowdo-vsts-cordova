@@ -10,6 +10,12 @@
   displayName: Run npm install ionic
   inputs:
     filename: '[% base_dir %]/npm-install-ionic.cmd'
+- task: CmdLine@1
+  displayName: Create www dir
+  inputs:
+    filename: perl
+    arguments: -e "mkdir www"
+    workingDirectory: "\$(Build.SourcesDirectory)"
 [%- IF prepare_only %]
 - task: BatchScript@1
   displayName: Create vsts project 

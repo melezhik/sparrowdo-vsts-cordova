@@ -26,7 +26,6 @@ our sub tasks (%args) {
     set-version.pl
     prepare.cmd
     clean-build-dir.cmd
-    create-appx-upload.cmd
     build.json
   >;
 

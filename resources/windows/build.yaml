@@ -48,7 +48,7 @@
   Compress-Archive -Path *.appx, *.appxsym -DestinationPath CordovaApp.Windows.zip -Force -Verbose
   Rename-Item -Path CordovaApp.Windows.zip -NewName CordovaApp.Windows.appxupload
   displayName: Create appxupload filex
-  workingDirectory: "\$(Build.SourcesDirectory)/platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.\$(Build.BuildId)_x86_debug_Test"
+  workingDirectory: "\$(Build.SourcesDirectory)/platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.\$(Build.BuildId)_[% build_arch %]_debug_[% build_configuration %]"
 [%- END %]
 
 

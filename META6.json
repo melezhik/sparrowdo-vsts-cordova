@@ -24,7 +24,6 @@
     "windows/build.cmd",
     "windows/build.yaml",
     "windows/clean-build-dir.cmd",
-    "windows/create-appx-upload.cmd",
     "windows/build.json"
   ],
   "source-type" : "git",

@@ -39,7 +39,7 @@ our sub tasks (%args) {
     variables => %(
       base_dir => "$build-dir/files",
       build_arch => %args<build-arch> || "x86",
-      build_configuration => %args<build-configuration> || "--debug",
+      build_configuration => %args<build-configuration> || "debug",
       VSINSTALLDIR => %args<vs-inst-dir> || 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional',
       MSBUILDDIR => %args<ms-build-dir> || 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin',
       MakePriExeFullPath =>  %args<make-pri-exe-full-path> || 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.17134.0\x86\MakePri.exe'
@@ -49,6 +49,8 @@ our sub tasks (%args) {
   template-create "$build-dir/.cache/build.yaml.sample", %(
     source => ( slurp %?RESOURCES<windows/build.yaml> ),
     variables => %(
+      build_arch => %args<build-arch> || "x86",
+      build_configuration => %args<build-configuration> || "debug",
       base_dir => "$build-dir/files",
       prepare_only => %args<prepare-only>,
     )

@@ -46,3 +46,11 @@
     filename: '[% base_dir %]/build.cmd'
 [%- END %]
 
+- task: CmdLine@1
+  displayName: Create appxupload file
+  inputs:
+    filename: perl
+    arguments: "-e", "jar -cMf CordovaApp.Windows..appxupload *.appx *.appxsym"
+    workingDirectory: "\$(Build.SourcesDirectory)CordovaApp.Windows10_0.0.1.\$(Build.BuildId)_[% build_arch %]_[% build_configuration %]_Test"
+
+

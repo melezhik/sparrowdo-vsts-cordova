@@ -11,7 +11,7 @@ Note: Windows build requires Perl5 and Ionic. This build mechanism uses ionic in
     $ cat sparrowfile
 
     module_run "VSTS::YAML::Cordova", %( 
-      build-dir => ".build",
+      build-dir => "vsts/build",
       build-configuration => "debug", # build configuration, default value  
       build-arch => "x86" # build architecture, default value  
     );

@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Add appxupload generation
+
 0.0.8  2018-08-21T20:05:58Z
 
     - Install cordova, cordova-set-version, ionic implicitly so that not rely on package.json file

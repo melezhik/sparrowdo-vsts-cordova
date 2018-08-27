@@ -26,6 +26,7 @@ our sub tasks (%args) {
     set-version.pl
     prepare.cmd
     clean-build-dir.cmd
+    build.json
   >;
 
 
@@ -36,6 +37,7 @@ our sub tasks (%args) {
   template-create "$build-dir/files/build.cmd", %(
     source => ( slurp %?RESOURCES<windows/build.cmd> ),
     variables => %(
+      base_dir => "$build-dir/files",
       build_arch => %args<build-arch> || "x86",
       build_configuration => %args<build-configuration> || "--debug",
       VSINSTALLDIR => %args<vs-inst-dir> || 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional',

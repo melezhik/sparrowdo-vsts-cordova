@@ -24,6 +24,7 @@ our sub tasks (%args) {
     npm-install-cordova-set-version.cmd
     platform-add.cmd
     set-version.pl
+    update-configuration.pl
     prepare.cmd
     clean-build-dir.cmd
     build.json

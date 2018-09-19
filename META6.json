@@ -24,7 +24,8 @@
     "windows/build.cmd",
     "windows/build.yaml",
     "windows/clean-build-dir.cmd",
-    "windows/build.json"
+    "windows/build.json",
+    "windows/update-configuration.pl"
   ],
   "source-type" : "git",
   "source-url" : "https://github.com/melezhik/sparrowdo-vsts-cordova.git",

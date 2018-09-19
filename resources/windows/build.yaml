@@ -40,6 +40,12 @@
     filename: perl
     arguments: [% base_dir %]/set-version.pl "\$(Build.BuildId)"
     workingDirectory: "\$(Build.SourcesDirectory)"
+- task: CmdLine@1
+  displayName: Update configuration
+  inputs:
+    filename: perl
+    arguments: [% base_dir %]/update-configuration.pl "\$(Build.SourceBranchName)"
+    workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
   displayName:  Build package
   inputs:

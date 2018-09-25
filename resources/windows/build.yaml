@@ -57,9 +57,15 @@
   displayName: Create appxupload file (zip)
   workingDirectory: "\$(Build.SourcesDirectory)/platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.\$(Build.BuildId)_[% build_arch %]_Test"
 [%- END %]
+[%- IF  build_configuration == 'debug' %]
 - powershell: Rename-Item -Path CordovaApp.Windows.zip -NewName CordovaApp.Windows.appxupload
   displayName: Create appxupload file (rename)
   workingDirectory: "\$(Build.SourcesDirectory)/platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.\$(Build.BuildId)_[% build_arch %]_[% build_configuration %]_Test"
+[%- ELSE %]
+- powershell: Rename-Item -Path CordovaApp.Windows.zip -NewName CordovaApp.Windows.appxupload
+  displayName: Create appxupload file (rename)
+  workingDirectory: "\$(Build.SourcesDirectory)/platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.\$(Build.BuildId)_[% build_arch %]_Test"
+[%- END %]
 [%- END %]
 
 

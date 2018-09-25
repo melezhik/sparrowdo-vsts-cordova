@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+    - use poweshell to remove build directory
+
+    - appxupload generator - handle debug/release differently
+
 0.0.9  2018-08-27T22:07:54Z
 
     - Add appxupload generation

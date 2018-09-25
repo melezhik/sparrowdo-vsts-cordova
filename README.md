@@ -2,11 +2,19 @@
 
 Sparrowdo module to generate VSTS yaml build definition steps for Cordova build.
 
-# USAGE
+# Platform supported
 
-## Windows
+* Windows
 
-Note: Windows build requires Perl5 and Ionic. This build mechanism uses ionic internally.
+For building Cordova for iOS/OSx see [Sparrowdo::Cordova::OSx::Build](https://github.com/melezhik/sparrowdo-cordova-osx-build) module.
+
+# Prerequisites
+
+* Perl5
+* Ionic
+* Powershell
+
+# Usage
 
     $ cat sparrowfile
 

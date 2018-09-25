@@ -26,7 +26,6 @@ our sub tasks (%args) {
     set-version.pl
     update-configuration.pl
     prepare.cmd
-    clean-build-dir.cmd
     build.json
   >;
 

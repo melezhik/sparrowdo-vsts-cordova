@@ -23,7 +23,6 @@
     "windows/set-version.pl",
     "windows/build.cmd",
     "windows/build.yaml",
-    "windows/clean-build-dir.cmd",
     "windows/build.json",
     "windows/update-configuration.pl"
   ],

@@ -22,6 +22,7 @@
     "windows/platform-add.cmd",
     "windows/set-version.pl",
     "windows/remove-old-packages.pl",
+    "windows/copy-appx-files.pl",
     "windows/build.cmd",
     "windows/build.yaml",
     "windows/build.json",

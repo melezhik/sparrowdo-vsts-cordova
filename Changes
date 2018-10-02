@@ -1,6 +1,8 @@
 {{$NEXT}}
 
-    - use poweshell to remove build directory
+    - deal with large revision numbers - https://stackoverflow.com/questions/1188284/net-large-revision-numbers-in-assemblyversionattribute
+  
+    - use perl to remove build directory and copy binaries
 
     - appxupload generator - handle debug/release differently
 

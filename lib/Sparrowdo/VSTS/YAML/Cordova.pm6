@@ -1,6 +1,6 @@
 use v6;
 
-unit module Sparrowdo::VSTS::YAML::Cordova:ver<0.0.10>;
+unit module Sparrowdo::VSTS::YAML::Cordova:ver<0.0.11>;
 
 use Sparrowdo;
 use Sparrowdo::Core::DSL::Bash;

@@ -3,11 +3,13 @@ use File::Copy;
 use JSON qw{decode_json};
 
 
-my $build_id = @ARGV[0] or die "usage: copy-appx-files.pl build_id build_configuration build_arch";
+my $base_dir = @ARGV[0] or die "usage: copy-appx-files.pl base_dir build_id build_configuration build_arch";
 
-my $build_configuration = @ARGV[1] or die "usage: copy-appx-files.pl build_version build_id build_arch";
+my $build_id = @ARGV[1] or die "usage: copy-appx-files.pl base_dir build_id build_configuration build_arch";
 
-my $build_arch = @ARGV[2] or die "usage: copy-appx-files.pl build_version build_id build_arch";
+my $build_configuration = @ARGV[2] or die "usage: copy-appx-files.pl base_dir build_version build_id build_arch";
+
+my $build_arch = @ARGV[3] or die "usage: copy-appx-files.pl base_dir build_version build_id build_arch";
 
 # see https://stackoverflow.com/questions/1188284/net-large-revision-numbers-in-assemblyversionattribute
 # why
@@ -35,15 +37,15 @@ if ( $build_configuration eq 'debug' ){
   "_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_".$build_configuration.".appx";
 
-  print "copy $path => binaries/ ... \n";
-  copy("$path","binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
+  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
 
   $path = "platforms/windows/AppPackages/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_".$build_configuration.".appxsym";
 
-  print "copy $path => binaries/ ... \n";
-  copy("$path","binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
+  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
 }
 
 if ( $build_configuration eq 'release' ){
@@ -52,15 +54,15 @@ if ( $build_configuration eq 'release' ){
   $revision."_".$build_arch."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch.".appx";
 
-  print "copy $path => binaries/ ... \n";
-  copy("$path","binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
+  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
 
   $path = "platforms/windows/AppPackages/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch.".appxsym";
 
-  print "copy $path => binaries/ ... \n";
-  copy("$path","binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
+  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
 
 }
 

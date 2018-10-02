@@ -56,7 +56,7 @@
   displayName: Copy binaries
   inputs:
     filename: perl
-    arguments: [% base_dir %]/copy-appx-files.pl "\$(Build.BuildId)" "[% build_configuration %]" "[% build_arch %]"
+    arguments: [% base_dir %]/copy-appx-files.pl  "\$(Build.SourcesDirectory)" "\$(Build.BuildId)" "[% build_configuration %]" "[% build_arch %]"
     workingDirectory: "\$(Build.SourcesDirectory)"
 - powershell: Compress-Archive -Path *.appx, *.appxsym -DestinationPath CordovaApp.Windows.zip -Force -Verbose
   displayName: Create appxupload file (zip)

@@ -37,15 +37,15 @@ if ( $build_configuration eq 'debug' ){
   "_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_".$build_configuration.".appx";
 
-  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
-  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir/$path => ".$base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch."_".$build_configuration.".appx ... \n";
+  copy("$base_dir/$path", $base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch."_".$build_configuration.".appx" ) or die "Copy failed: $!";
 
   $path = "platforms/windows/AppPackages/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_".$build_configuration.".appxsym";
 
-  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
-  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir/$path => ".$base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch."_".$build_configuration.".appxsym ... \n";
+  copy("$base_dir/$path", $base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch."_".$build_configuration.".appxsym" ) or die "Copy failed: $!";
 }
 
 if ( $build_configuration eq 'release' ){
@@ -57,12 +57,15 @@ if ( $build_configuration eq 'release' ){
   print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
   copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
 
+  print "copy $base_dir/$path => ".$base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch.".appx ... \n";
+  copy("$base_dir/$path", $base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch.".appx" ) or die "Copy failed: $!";
+
   $path = "platforms/windows/AppPackages/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch.".appxsym";
 
-  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
-  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
+  print "copy $base_dir/$path => ".$base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch.".appxsym ... \n";
+  copy("$base_dir/$path", $base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch.".appxsym" ) or die "Copy failed: $!";
 
 }
 

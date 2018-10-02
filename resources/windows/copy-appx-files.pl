@@ -16,7 +16,7 @@ $build_version = $build_version - 35365 * (sprintf "%d",  $build_version / 35365
 
 if ( $build_configuration eq 'debug' ){
 
-  my $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.".
+  my $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.1.0.".
   $build_version.
   "_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch.".appx";
@@ -24,7 +24,7 @@ if ( $build_configuration eq 'debug' ){
   print "copy $path => binaries/ ... \n";
   copy("$path","binaries/$path") or die "Copy failed: $!";
 
-  $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.".
+  $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch.".appxsym";
 
@@ -34,14 +34,14 @@ if ( $build_configuration eq 'debug' ){
 
 if ( $build_configuration eq 'release' ){
 
-  my $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.".
+  my $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch."_Test/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch.".appx";
 
   print "copy $path => binaries/ ... \n";
   copy("$path","binaries/$path") or die "Copy failed: $!";
 
-  $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.0.1.".
+  $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch."_Test/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch.".appxsym";
 

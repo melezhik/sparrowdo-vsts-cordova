@@ -36,14 +36,12 @@
   displayName:  Add windows plaform
   inputs:
     filename: '[% base_dir %]/platform-add.cmd'
-[%- IF set_version %]
 - task: CmdLine@1
   displayName: Set package version
   inputs:
     filename: perl
     arguments: [% base_dir %]/set-version.pl "\$(Build.BuildId)"
     workingDirectory: "\$(Build.SourcesDirectory)"
-[%- END %]
 - task: CmdLine@1
   displayName: Update configuration
   inputs:

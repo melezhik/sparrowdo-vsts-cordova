@@ -1,5 +1,5 @@
 use strict;
-use File::Path qw(make_path remove_tree);
+use File::Path qw(remove_tree);
 
 my $path = $ARGV[0] or die "usage: remove-old-packages.pl path";
 
@@ -8,12 +8,5 @@ if (-d $path){
   print "directory [$path] removed OK\n";
 } else {
   print "directory [$path] does not exit, SKIP removal\n";
-}
-
-if (-d "binaries"){
-  remove_tree("binaries") or die "can't remove directory binaries, error: $!";
-  print "directory [binaries] removed OK\n";
-} else {
-  print "directory [binaries] does not exit, SKIP removal\n";
 }
 

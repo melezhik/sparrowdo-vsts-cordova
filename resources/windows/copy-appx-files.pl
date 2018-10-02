@@ -54,9 +54,6 @@ if ( $build_configuration eq 'release' ){
   $revision."_".$build_arch."_Test/CordovaApp.Windows10_$main_version.".
   $revision."_".$build_arch.".appx";
 
-  print "copy $base_dir$path => ".$base_dir."binaries/$path ... \n";
-  copy("$base_dir$path",$base_dir."binaries/$path") or die "Copy failed: $!";
-
   print "copy $base_dir/$path => ".$base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch.".appx ... \n";
   copy("$base_dir/$path", $base_dir."/binaries/CordovaApp.Windows10_$main_version.".$revision."_".$build_arch.".appx" ) or die "Copy failed: $!";
 

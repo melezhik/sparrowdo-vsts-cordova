@@ -2,9 +2,9 @@
 
     - deal with large revision numbers - https://stackoverflow.com/questions/1188284/net-large-revision-numbers-in-assemblyversionattribute
   
-    - use perl to remove build directory and copy binaries
+    - use perl to remove build directory
 
-    - appxupload generator - handle debug/release differently
+    - rely on cordova generated appxupload, rater than generating one
 
 0.0.9  2018-08-27T22:07:54Z
 

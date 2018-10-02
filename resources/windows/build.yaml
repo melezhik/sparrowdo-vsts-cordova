@@ -63,7 +63,7 @@
   workingDirectory: "\$(Build.SourcesDirectory)/binaries"
 - powershell: Rename-Item -Path CordovaApp.Windows.zip -NewName CordovaApp.Windows.appxupload
   displayName: Create appxupload file (rename)
-  workingDirectory: "\$(Build.SourcesDirectory)"
+  workingDirectory: "\$(Build.SourcesDirectory)/binaries"
 [%- END %]
 
 

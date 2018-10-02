@@ -22,6 +22,7 @@ For building Cordova for iOS/OSx see [Sparrowdo::Cordova::OSx::Build](https://gi
       build-dir => "vsts/build",
       build-configuration => "debug", # build configuration, default value  
       build-arch => "x86" # build architecture, default value  
+      set-version => True # Set build version, default value is False
     );
 
     $ sparrowdo --no_sudo --local_mode

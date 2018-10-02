@@ -24,6 +24,7 @@ our sub tasks (%args) {
     npm-install-cordova-set-version.cmd
     platform-add.cmd
     set-version.pl
+    remove-old-packages.pl
     update-configuration.pl
     prepare.cmd
     build.json
@@ -53,6 +54,7 @@ our sub tasks (%args) {
       build_configuration => %args<build-configuration> || "debug",
       base_dir => "$build-dir/files",
       prepare_only => %args<prepare-only>,
+      set_version => %args<set-version>
     )
   );
 

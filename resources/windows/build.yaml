@@ -26,18 +26,24 @@
   displayName: Run npm install cordova-set-version
   inputs:
     filename: '[% base_dir %]/npm-install-cordova-set-version.cmd'
-- powershell: Remove-Item -Recurse -Force platforms\windows\AppPackages\
+- task: CmdLine@1
   displayName: Remove build directory
+  inputs:
+    filename: perl
+    arguments: [% base_dir %]/remove-old-packages.pl platforms\windows\AppPackages\
+    workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
   displayName:  Add windows plaform
   inputs:
     filename: '[% base_dir %]/platform-add.cmd'
+[%- IF set_version %]
 - task: CmdLine@1
   displayName: Set package version
   inputs:
     filename: perl
     arguments: [% base_dir %]/set-version.pl "\$(Build.BuildId)"
     workingDirectory: "\$(Build.SourcesDirectory)"
+[%- END %]
 - task: CmdLine@1
   displayName: Update configuration
   inputs:

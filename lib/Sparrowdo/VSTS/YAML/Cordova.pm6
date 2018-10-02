@@ -25,7 +25,6 @@ our sub tasks (%args) {
     platform-add.cmd
     set-version.pl
     remove-old-packages.pl
-    copy-appx-files.pl
     update-configuration.pl
     prepare.cmd
     build.json

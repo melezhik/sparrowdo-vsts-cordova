@@ -17,5 +17,3 @@ if (-d "binaries"){
   print "directory [binaries] does not exit, SKIP removal\n";
 }
 
-make_path("binaries") or die "can't create directory binaries, error: $!";
-print "directory [binaries] created OK\n";

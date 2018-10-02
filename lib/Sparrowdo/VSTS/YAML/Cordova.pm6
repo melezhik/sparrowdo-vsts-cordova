@@ -54,8 +54,7 @@ our sub tasks (%args) {
       build_arch => %args<build-arch> || "x86",
       build_configuration => %args<build-configuration> || "debug",
       base_dir => "$build-dir/files",
-      prepare_only => %args<prepare-only>,
-      set_version => %args<set-version>
+      prepare_only => %args<prepare-only>
     )
   );
 

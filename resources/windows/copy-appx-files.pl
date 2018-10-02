@@ -19,14 +19,14 @@ if ( $build_configuration eq 'debug' ){
   my $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.1.0.".
   $build_version.
   "_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_0.1.0.".
-  $build_version."_".$build_arch.".appx";
+  $build_version."_".$build_arch."_".$build_configuration.".appx";
 
   print "copy $path => binaries/ ... \n";
   copy("$path","binaries/$path") or die "Copy failed: $!";
 
   $path = "platforms/windows/AppPackages/CordovaApp.Windows10_0.1.0.".
   $build_version."_".$build_arch."_".$build_configuration."_Test/CordovaApp.Windows10_0.1.0.".
-  $build_version."_".$build_arch.".appxsym";
+  $build_version."_".$build_arch."_".$build_configuration.".appxsym";
 
   print "copy $path => binaries/ ... \n";
   copy("$path","binaries/$path") or die "Copy failed: $!";

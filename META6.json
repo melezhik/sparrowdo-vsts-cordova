@@ -15,11 +15,9 @@
   },
   "resources" : [
     "windows/npm-install.cmd",
-    "windows/npm-install-cordova.cmd",
     "windows/npm-install-ionic.cmd",
     "windows/npm-install-cordova-set-version.cmd",
     "windows/prepare.cmd",
-    "windows/platform-add.cmd",
     "windows/set-version.pl",
     "windows/remove-old-packages.pl",
     "windows/build.cmd",

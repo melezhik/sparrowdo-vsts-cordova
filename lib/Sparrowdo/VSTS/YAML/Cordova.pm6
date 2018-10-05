@@ -19,10 +19,8 @@ our sub tasks (%args) {
 
   my @list = <
     npm-install.cmd
-    npm-install-cordova.cmd
     npm-install-ionic.cmd
     npm-install-cordova-set-version.cmd
-    platform-add.cmd
     set-version.pl
     remove-old-packages.pl
     configure.pl

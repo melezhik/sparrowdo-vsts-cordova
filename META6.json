@@ -22,7 +22,6 @@
     "windows/platform-add.cmd",
     "windows/set-version.pl",
     "windows/remove-old-packages.pl",
-    "windows/configure.pl",
     "windows/build.cmd",
     "windows/build.yaml",
     "windows/build.json",

@@ -46,7 +46,7 @@
   displayName: Configure
   inputs:
     filename: perl
-    arguments: [% base_dir %]/configure.pl "\$(Build.SourceBranchName)"
+    arguments: [% base_dir %]/configure.pl "\$(Build.SourcesDirectory)" "\$(Build.SourceBranchName)"
     workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
   displayName:  Build package

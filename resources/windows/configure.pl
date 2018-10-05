@@ -3,7 +3,8 @@
 use strict;
 use File::Copy;
 
-my $source_code_branch = @ARGV[0];
+my $root_dir = @ARGV[0];
+my $source_code_branch = @ARGV[1];
 
 print "update configuration for env: $source_code_branch (data)\n=================================\n";
 
@@ -20,7 +21,7 @@ if ( $source_code_branch && -d "src/env/$source_code_branch/" && -d "src/assets/
   print "fallback to default source branch but it is not found .... nothing to do\n";
 }
 
-print "update configuration for env: $source_code_branch (cmd)\n=================================\n";
+print "\n\nupdate configuration for env: $source_code_branch (cmd)\n=================================\n";
 
 if ( $source_code_branch && -d "src/env/$source_code_branch/" ) {
   execute_commands($source_code_branch);
@@ -66,8 +67,8 @@ sub execute_commands {
   closedir $dh;
 
   for my $c (sort { $a <=> $b } @commands){
-    print "executing src/env/$source_code_branch/$c ... \n";
-    system("src/env/$source_code_branch/$c") == 0 or die "Failed to execute [src/env/$source_code_branch/$c]: $!";
+    print "executing $root_dir/src/env/$source_code_branch/$c ... \n";
+    system("$root_dir/src/env/$source_code_branch/$c") == 0 or die "Failed to execute [$root_dir/src/env/$source_code_branch/$c]: $!";
   }
 
 }

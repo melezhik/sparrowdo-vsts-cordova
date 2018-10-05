@@ -48,6 +48,12 @@
     filename: perl
     arguments: [% base_dir %]/update-configuration.pl "\$(Build.SourceBranchName)"
     workingDirectory: "\$(Build.SourcesDirectory)"
+- task: CmdLine@1
+  displayName: Apply environment configuration
+  inputs:
+    filename: perl
+    arguments: [% base_dir %]/configure.pl "\$(Build.SourcesDirectory)/[% base_dir %]"
+    workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
   displayName:  Build package
   inputs:

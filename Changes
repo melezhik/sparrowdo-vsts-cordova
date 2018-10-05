@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Per environment configurations
+
 0.0.11  2018-10-02T19:02:55Z
 
     - deal with large revision numbers - https://stackoverflow.com/questions/1188284/net-large-revision-numbers-in-assemblyversionattribute

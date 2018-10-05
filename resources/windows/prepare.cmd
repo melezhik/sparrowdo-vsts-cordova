@@ -1,3 +1,3 @@
 set PATH=%PATH%;"C:\Program Files\nodejs"
 
-npm run cordova -- platform add windows 
+npm run ionic -- cordova platform add windows

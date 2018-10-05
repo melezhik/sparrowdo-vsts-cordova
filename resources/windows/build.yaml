@@ -43,10 +43,10 @@
     arguments: [% base_dir %]/set-version.pl "\$(Build.BuildId)"
     workingDirectory: "\$(Build.SourcesDirectory)"
 - task: CmdLine@1
-  displayName: Apply env-branch configuration
+  displayName: Configure
   inputs:
     filename: perl
-    arguments: [% base_dir %]/update-configuration.pl "\$(Build.SourceBranchName)"
+    arguments: [% base_dir %]/configure.pl "\$(Build.SourceBranchName)"
     workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
   displayName:  Build package

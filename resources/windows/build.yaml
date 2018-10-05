@@ -3,10 +3,6 @@
   inputs:
     filename: '[% base_dir %]/npm-install.cmd'
 - task: BatchScript@1
-  displayName: Run npm install cordova
-  inputs:
-    filename: '[% base_dir %]/npm-install-cordova.cmd'
-- task: BatchScript@1
   displayName: Run npm install ionic
   inputs:
     filename: '[% base_dir %]/npm-install-ionic.cmd'
@@ -18,7 +14,7 @@
     workingDirectory: "\$(Build.SourcesDirectory)"
 [%- IF prepare_only %]
 - task: BatchScript@1
-  displayName: Create vsts project 
+  displayName: Cordova prepare windows 
   inputs:
     filename: '[% base_dir %]/prepare.cmd'
 [%- ELSE %]
@@ -33,9 +29,9 @@
     arguments: [% base_dir %]/remove-old-packages.pl platforms\windows\AppPackages\
     workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
-  displayName:  Add windows plaform
+  displayName:  Cordova prepare windows
   inputs:
-    filename: '[% base_dir %]/platform-add.cmd'
+    filename: '[% base_dir %]/prepare.cmd'
 - task: CmdLine@1
   displayName: Set package version
   inputs:

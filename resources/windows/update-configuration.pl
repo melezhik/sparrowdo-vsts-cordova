@@ -13,8 +13,11 @@ if ( $source_code_branch && -d "src/env/$source_code_branch/" && -d "src/assets/
   print "source branch is not set, is Build.SourceBranchName empty? .... nothing to do\n";
 } elsif ( ! -d "src/assets/jsons/" ) {
   print "src/assets/jsons/ does not exit, hope it's ok ... nothing to do\n";
-} else {
+} elsif (-d "src/env/default") {
+  print "fallback to default source branch\n";
   copy_data("default");
+} else {
+  print "fallback to default source branch but it is not found .... nothing to do\n";
 }
 
 print "update configuration for env: $source_code_branch (cmd)\n=================================\n";
@@ -23,10 +26,12 @@ if ( $source_code_branch && -d "src/env/$source_code_branch/" ) {
   execute_commands($source_code_branch);
 } elsif ( ! $source_code_branch ) {
   print "source branch is not set, is Build.SourceBranchName empty? .... nothing to do\n";
-} else {
+} elsif (-d "src/env/default") {
+  print "fallback to default source branch\n";
   execute_commands("default");
+} else {
+  print "fallback to default source branch but it is not found .... nothing to do\n";
 }
-
 
 sub copy_data {
 
@@ -44,7 +49,7 @@ sub copy_data {
 }
 
 
-sub execute_command {
+sub execute_commands {
 
   my $source_code_branch = shift;
 

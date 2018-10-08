@@ -47,10 +47,16 @@
 
 [%- IF remote_run -%]
 - task: CmdLine@1
+  displayName: Copy build.cmd
+  inputs:
+    filename: perl
+    arguments: -MFile::Copy -e "copy(qq{[% base_dir %]/build.cmd},qq{build.cmd})"
+    workingDirectory: "\$(Build.SourcesDirectory)"
+- task: CmdLine@1
   displayName: Build package remotely
   inputs:
     filename: perl
-    arguments: -MMojo::UserAgent -e "\$r = Mojo::UserAgent->new(inactivity_timeout => 2000 )->post(qq{127.0.0.1:4444/run-cmd} => { Accept => qq{*/*} } => form => { dir => shift(), cmd => qq{ [% base_dir %]/build.cmd })->result->body; print \$r;" "\$(Build.SourcesDirectory)"
+    arguments: -MMojo::UserAgent -e "\$r = Mojo::UserAgent->new(inactivity_timeout => 2000 )->post(qq{127.0.0.1:4444/run-cmd} => { Accept => qq{*/*} } => form => { dir => shift(), cmd => qq[ build.cmd ] } )->result->body; print \$r;" "\$(Build.SourcesDirectory)"
 [%- ELSE -%]
 - task: BatchScript@1
   displayName:  Build package

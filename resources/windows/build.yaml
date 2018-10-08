@@ -50,7 +50,7 @@
   displayName: Build package remotely
   inputs:
     filename: perl
-    arguments: -MMojo::UserAgent -e "\$r = Mojo::UserAgent->new(inactivity_timeout => 2000 )->post(qq{127.0.0.1:4444/run-cmd} => { Accept => qq{*/*} } => form => { dir => shift(), cmd => ExecuteScan })->result->body; print \$r;" "\$(Build.SourcesDirectory)/[% base_dir %]/build.cmd"
+    arguments: -MMojo::UserAgent -e "\$r = Mojo::UserAgent->new(inactivity_timeout => 2000 )->post(qq{127.0.0.1:4444/run-cmd} => { Accept => qq{*/*} } => form => { dir => shift(), cmd => qq{ [% base_dir %]/build.cmd })->result->body; print \$r;" "\$(Build.SourcesDirectory)"
 [%- ELSE -%]
 - task: BatchScript@1
   displayName:  Build package

@@ -44,10 +44,19 @@
     filename: perl
     arguments: [% base_dir %]/configure.pl "\$(Build.SourcesDirectory)" "\$(Build.SourceBranchName)"
     workingDirectory: "\$(Build.SourcesDirectory)"
+
+[%- IF remote_run -%]
+- task: CmdLine@1
+  displayName: Build package remotely
+  inputs:
+    filename: perl
+    arguments: -MMojo::UserAgent -e "\$r = Mojo::UserAgent->new(inactivity_timeout => 2000 )->post(qq{127.0.0.1:4444/run-cmd} => { Accept => qq{*/*} } => form => { dir => shift(), cmd => ExecuteScan })->result->body; print \$r;" "\$(Build.SourcesDirectory)/[% base_dir %]/build.cmd"
+[%- ELSE -%]
 - task: BatchScript@1
   displayName:  Build package
   inputs:
     filename: '[% base_dir %]/build.cmd'
+[%- END -%]
 [%- END %]
 
 

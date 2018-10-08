@@ -74,17 +74,17 @@ Example:
 
     # $source_code_branch = production
     
-    ls -1 src/env/production/*.cmd
+    ls -1 src/env/production/
 
     00-command.cmd # executed  first
     01-command.cmd # executed  second
     02-command.cmd # excecuted third, so on
 
-You can use powershell scripts as well:
+You can use Powershell or Perl scripts as well:
 
-    00-command.cmd
-    01-command.cmd
-    02-command.ps1 
+    00-command.cmd # windows batch script 
+    01-command.pl  # Perl script
+    02-command.ps1 # Powershell script 
 
 You may define `default` branch to execute command for any branch not matching listed branches:
 

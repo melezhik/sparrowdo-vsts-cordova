@@ -76,9 +76,15 @@ Example:
     
     ls -1 src/env/production/*.cmd
 
-    00-command.cmd # executed first
-    01-command.cmd # executed second
-    02-command.cmd # so on
+    00-command.cmd # executed  first
+    01-command.cmd # executed  second
+    02-command.cmd # excecuted third, so on
+
+You can use powershell scripts as well:
+
+    00-command.cmd
+    01-command.cmd
+    02-command.ps1 
 
 You may define `default` branch to execute command for any branch not matching listed branches:
 

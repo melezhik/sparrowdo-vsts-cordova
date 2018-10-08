@@ -59,7 +59,7 @@ sub execute_commands {
   opendir(my $dh, "src/env/$source_code_branch/" ) || die "Can't open directory src/env/$source_code_branch/ to read: $!";
 
   while ( my $i = readdir $dh) {
-    $i =~ /.*\.cmd/ or next;
+    $i =~ /.*\.(cmd|ps1)$/ or next;
     -f "src/env/$source_code_branch/$i" or next;
     push @commands, $i;
   }
@@ -68,7 +68,15 @@ sub execute_commands {
 
   for my $c (sort { $a <=> $b } @commands){
     print "executing $root_dir/src/env/$source_code_branch/$c ... \n";
-    system("$root_dir/src/env/$source_code_branch/$c") == 0 or die "Failed to execute [$root_dir/src/env/$source_code_branch/$c]: $!";
+
+    if ($c =~/\.cmd$/){
+      system("$root_dir/src/env/$source_code_branch/$c") == 0 or die "Failed to execute [$root_dir/src/env/$source_code_branch/$c]: $!";
+    } elsif ($c =~/\.ps1$/) {
+      system("powershell -executionPolicy bypass  -file $root_dir/src/env/$source_code_branch/$c") == 0 or die "powershell command $root_dir/src/env/$source_code_branch/$c failed";
+    } else {
+      die "this type of commands is not supported: $c";
+    }
+
   }
 
 }

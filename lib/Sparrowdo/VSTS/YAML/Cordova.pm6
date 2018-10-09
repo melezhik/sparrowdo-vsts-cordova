@@ -24,7 +24,6 @@ our sub tasks (%args) {
     set-version.pl
     remove-old-packages.pl
     configure.pl
-    prepare.cmd
     build.json
   >;
 

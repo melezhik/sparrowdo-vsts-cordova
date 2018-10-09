@@ -66,7 +66,7 @@ Example:
 
 The method executed "branch specific" windows commands.
 
-Command files should be located at `src/env/$source_code_branch/` where `$source_code_branch` is SCM branch name.
+Command files should be located at `src/env/$target/$source_code_branch/` where `$source_code_branch` is SCM branch name.
 
 The commands are executed in order defined by their files names ( alphabetic order )
 
@@ -74,7 +74,7 @@ Example:
 
     # $source_code_branch = production
     
-    ls -1 src/env/production/
+    ls -1 src/env/uwp/production/
 
     00-command.cmd # executed  first
     01-command.cmd # executed  second
@@ -88,7 +88,7 @@ You can use Powershell or Perl scripts as well:
 
 You may define `default` branch to execute command for any branch not matching listed branches:
 
-    src/env/default/
+    src/env/$target/default/
 
 # Author
 

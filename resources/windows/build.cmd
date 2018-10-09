@@ -4,4 +4,4 @@ set VSINSTALLDIR=[% VSINSTALLDIR %]
 set MSBUILDDIR=[% MSBUILDDIR %]
 set MakePriExeFullPath=[% MakePriExeFullPath %]
 
-npm run ionic -- cordova build windows --[% build_configuration %] -- --arch=[% build_arch %]
+npm run cordova -- build windows --[% build_configuration %] -- --arch=[% build_arch %]

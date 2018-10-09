@@ -13,10 +13,12 @@
     arguments: -e "mkdir www"
     workingDirectory: "\$(Build.SourcesDirectory)"
 [%- IF prepare_only %]
-- task: BatchScript@1
-  displayName: Cordova prepare windows 
+- task: CmdLine@1
+  displayName: Configure
   inputs:
-    filename: '[% base_dir %]/prepare.cmd'
+    filename: perl
+    arguments: [% base_dir %]/configure.pl "\$(Build.SourcesDirectory)" "\$(Build.SourceBranchName)"
+    workingDirectory: "\$(Build.SourcesDirectory)"
 [%- ELSE %]
 - task: BatchScript@1
   displayName: Run npm install cordova-set-version
@@ -28,10 +30,6 @@
     filename: perl
     arguments: [% base_dir %]/remove-old-packages.pl platforms\windows\AppPackages\
     workingDirectory: "\$(Build.SourcesDirectory)"
-- task: BatchScript@1
-  displayName:  Cordova prepare windows
-  inputs:
-    filename: '[% base_dir %]/prepare.cmd'
 - task: CmdLine@1
   displayName: Set package version
   inputs:

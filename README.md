@@ -53,19 +53,26 @@ Modules supports source branches configuration int two flavors:
 
 The method copies "branch specific" files to `src/assets/jsons/` directory.
 
-The data files should be located at `src/env/$source_code_branch/.*json` where `$source_code_branch` is SCM branch name.
+The data files should be located at `src/env/$target/$source_code_branch/.*json` where:
+
+- `$source_code_branch` is SCM branch name
+- `$target` is `uwp` or `ios`
 
 Example:
 
+    # target = uwp
     # $source_code_branch = production
     
-    cp -r src/env/production/*.json src/assets/jsons/
+    cp -r src/env/uwp/production/*.json src/assets/jsons/
 
 ## Command configuration
 
 The method executed "branch specific" windows commands.
 
-Command files should be located at `src/env/$target/$source_code_branch/` where `$source_code_branch` is SCM branch name.
+Command files should be located at `src/env/$target/$source_code_branch/` where:
+
+- `$source_code_branch` is SCM branch name
+- `$target` is `uwp` or `ios`
 
 The commands are executed in order defined by their files names ( alphabetic order )
 

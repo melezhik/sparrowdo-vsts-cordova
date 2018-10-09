@@ -47,6 +47,10 @@ if ( $source_code_branch && -d "$root_dir/src/env/$target/$source_code_branch/" 
   print "fallback to default source branch but it is not found .... nothing to do\n";
 }
 
+if ( $source_code_branch && -d "$root_dir/src/env/any/" ) {
+  execute_commands("any");
+}
+
 sub copy_data {
 
   my $source_code_branch = shift;

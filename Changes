@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Don't use  ionic wrapper anymore
+
 0.0.13  2018-10-08T18:22:29Z
 
     - Configure command scripts - Powershell and Perl scripts support

@@ -21,13 +21,13 @@ print "target: $target\n\n";
 
 print "update configuration for env: $source_code_branch (data)\n=================================\n";
 
-if ( $source_code_branch && -d "src/env/$target/$source_code_branch/" && -d "src/assets/jsons/" ) {
+if ( $source_code_branch && -d "$root_dir/src/env/$target/$source_code_branch/" && -d "src/assets/jsons/" ) {
   copy_data($source_code_branch);
 } elsif ( ! $source_code_branch ) {
   print "source branch is not set, is Build.SourceBranchName empty? .... nothing to do\n";
-} elsif ( ! -d "src/assets/jsons/" ) {
+} elsif ( ! -d "$root_dir/src/assets/jsons/" ) {
   print "src/assets/jsons/ does not exit, hope it's ok ... nothing to do\n";
-} elsif (-d "src/env/$target/default") {
+} elsif (-d "$root_dir/src/env/$target/default") {
   print "fallback to default source branch\n";
   copy_data("default");
 } else {
@@ -36,11 +36,11 @@ if ( $source_code_branch && -d "src/env/$target/$source_code_branch/" && -d "src
 
 print "\n\nupdate configuration for env: $source_code_branch (cmd)\n=================================\n";
 
-if ( $source_code_branch && -d "src/env/$target/$source_code_branch/" ) {
+if ( $source_code_branch && -d "$root_dir/src/env/$target/$source_code_branch/" ) {
   execute_commands($source_code_branch);
 } elsif ( ! $source_code_branch ) {
   print "source branch is not set, is Build.SourceBranchName empty? .... nothing to do\n";
-} elsif (-d "src/env/default") {
+} elsif (-d "$root_dir/src/env/$target/default") {
   print "fallback to default source branch\n";
   execute_commands("default");
 } else {
@@ -51,12 +51,12 @@ sub copy_data {
 
   my $source_code_branch = shift;
 
-  opendir(my $dh, "src/env/$target/$source_code_branch/" ) || die "Can't open directory src/env/$target/$source_code_branch/ to read: $!";
+  opendir(my $dh, "$root_dir/src/env/$target/$source_code_branch/" ) || die "Can't open directory $root_dir/src/env/$target/$source_code_branch/ to read: $!";
   while ( my $i = readdir $dh) {
     $i =~ /.*\.json/ or next;
-    -f "src/env/$target/$source_code_branch/$i" or next;
-    print "copy src/env/$target/$source_code_branch/$i ==> src/assets/jsons/$i ... \n";
-    copy("src/env/$target/$source_code_branch/$i","src/assets/jsons/$i") or die "Copy failed: $!";
+    -f "$root_dir/src/env/$target/$source_code_branch/$i" or next;
+    print "copy $root_dir/src/env/$target/$source_code_branch/$i ==> $root_dir/src/assets/jsons/$i ... \n";
+    copy("$root_dir/src/env/$target/$source_code_branch/$i","$root_dir/src/assets/jsons/$i") or die "Copy failed: $!";
   }
   closedir $dh;
 
@@ -69,11 +69,11 @@ sub execute_commands {
 
   my @commands;
 
-  opendir(my $dh, "src/env/$target/$source_code_branch/" ) || die "Can't open directory src/env/$target/$source_code_branch/ to read: $!";
+  opendir(my $dh, "$root_dir/src/env/$target/$source_code_branch/" ) || die "Can't open directory $root_dir/src/env/$target/$source_code_branch/ to read: $!";
 
   while ( my $i = readdir $dh) {
     $i =~ /.*\.(cmd|ps1|pl)$/ or next;
-    -f "src/env/$target/$source_code_branch/$i" or next;
+    -f "$root_dir/src/env/$target/$source_code_branch/$i" or next;
     push @commands, $i;
   }
 
@@ -175,4 +175,3 @@ sub _resolve_os {
   }
   return $OS;
 }
-

@@ -11,7 +11,6 @@ For building Cordova for iOS/OSx see [Sparrowdo::Cordova::OSx::Build](https://gi
 # Prerequisites
 
 * Perl5
-* Ionic
 
 # Usage
 

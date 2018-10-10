@@ -22,7 +22,7 @@
   displayName: Generate build script
   inputs:
     filename: perl
-    arguments: [% base_dir %]/gene-build-cmd.pl
+    arguments: [% base_dir %]/gene-build-cmd.pl [% build_configuration %] [% build_arch %]
     workingDirectory: "\$(Build.SourcesDirectory)"
 - task: BatchScript@1
   displayName: Run npm install cordova-set-version

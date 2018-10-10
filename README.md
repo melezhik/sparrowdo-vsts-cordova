@@ -103,8 +103,9 @@ These variables adjust build logic:
 
 For example:
 
-    Build.Production.Configuration = "release"
+    Build.Production.Configuration = "release" # Set release configuration for production branch 
 
+    Build.Default.Configuration = "debug" # Set debug configuration by default
 
 # Author
 

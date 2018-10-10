@@ -18,11 +18,12 @@
     "windows/npm-install-ionic.cmd",
     "windows/npm-install-cordova-set-version.cmd",
     "windows/set-version.pl",
+    "windows/configure.pl",
     "windows/remove-old-packages.pl",
-    "windows/build.cmd",
-    "windows/build.yaml",
-    "windows/build.json",
-    "windows/configure.pl"
+    "windows/gene-build-cmd.pl",
+    "windows/build.cmd.tmpl",
+    "windows/prepare.cmd",
+    "windows/build.yaml"
   ],
   "source-type" : "git",
   "source-url" : "https://github.com/melezhik/sparrowdo-vsts-cordova.git",

@@ -24,7 +24,8 @@ our sub tasks (%args) {
     set-version.pl
     remove-old-packages.pl
     configure.pl
-    build.json
+    gene-build-cmd.pl
+    prepare.cmd
   >;
 
 
@@ -32,12 +33,10 @@ our sub tasks (%args) {
     file "$build-dir/files/$i", %( content => slurp %?RESOURCES{"windows/$i"}.Str );
   }
 
-  template-create "$build-dir/files/build.cmd", %(
-    source => ( slurp %?RESOURCES<windows/build.cmd> ),
+  template-create "$build-dir/files/build.cmd.tmpl", %(
+    source => ( slurp %?RESOURCES<windows/build.cmd.tmpl> ),
     variables => %(
       base_dir => "$build-dir/files",
-      build_arch => %args<build-arch> || "x86",
-      build_configuration => %args<build-configuration> || "debug",
       VSINSTALLDIR => %args<vs-inst-dir> || 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional',
       MSBUILDDIR => %args<ms-build-dir> || 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin',
       MakePriExeFullPath =>  %args<make-pri-exe-full-path> || 'C:\Program Files (x86)\Windows Kits\10\bin\10.0.17134.0\x86\MakePri.exe'

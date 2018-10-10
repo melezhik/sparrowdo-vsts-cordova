@@ -44,8 +44,7 @@ Use following parameter to adjust MSBuild and Visual Studio settings:
     make-pri-exe-full-path  | Path to MakePri.exe tool           | C:\Program Files (x86)\Windows Kits\10\bin\10.0.17134.0\x86\MakePri.exe
     ===============================================================================================================================================
 
-# Per branch configurations
-
+# Per branche/env configurations
 
 Modules supports source branches configuration int two flavors:
 
@@ -95,6 +94,17 @@ You can use Powershell or Perl scripts as well:
 You may define `default` branch to execute command for any branch not matching listed branches:
 
     src/env/$target/default/
+
+# VSTS Build configurations
+
+These variables adjust build logic:
+
+- Build.$source_code_branch.Configuration - set configuration for `cordova build` command.
+
+For example:
+
+    Build.Production.Configuration = "release"
+
 
 # Author
 

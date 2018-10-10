@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - VSTS variables support
+
 0.0.14  2018-10-09T22:08:46Z
 
     - Don't use  ionic wrapper anymore

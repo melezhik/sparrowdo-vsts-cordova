@@ -99,13 +99,20 @@ You may define `default` branch to execute command for any branch not matching l
 
 These variables adjust build logic:
 
-- Build.$source_code_branch.Configuration - set configuration for `cordova build` command.
+- Build.$source_code_branch.Configuration 
+
+Set configuration for `cordova build` command.
 
 For example:
 
     Build.Production.Configuration = "release" # Set release configuration for production branch 
 
     Build.Default.Configuration = "debug" # Set debug configuration by default
+
+- Build.NoPatchVersion
+
+Disable revision version patching. Helpful when you create build for windows store.
+
 
 # Author
 

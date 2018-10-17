@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+0.0.16  2018-10-17T20:30:32Z
+
+    - Disable revision version patch feature
+
 0.0.15  2018-10-10T16:55:26Z
 
     - VSTS variables support

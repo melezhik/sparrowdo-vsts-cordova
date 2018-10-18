@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.0.17  2018-10-18T15:06:01Z
+
     - Fix for BUILD_NOPATCHREVISION feature
 
 0.0.16  2018-10-17T20:30:32Z

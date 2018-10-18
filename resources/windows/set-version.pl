@@ -1,14 +1,26 @@
 #!perl
 
 use strict;
+use JSON qw{decode_json};
 
-if ($ENV{BUILD_NOPATCHVERSION}){
+if ($ENV{BUILD_NOPATCHREVISION}){
 
-  print "Build.NoPatchVersion is set ... nothing to do ... \n";
+  print "Build.NoPatchVersion is set, don't patch revision ... \n";
+
+  open JSON, "package.json" or die "can't open package.jspon to read";
+  my $js = join "", <JSON>;
+  close JSON;
+  
+  my $main_version = decode_json($js)->{version};
+  
+  print "set version ...\n";
+  print "main version (taken from package.json) - $main_version ...\n";
+  
+  system("npm run cordova-set-version -- -v $main_version.$revision")  == 0 
+    or die "npm run cordova-set-version -- -v $main_version.$revision failed: $?";
 
 } else {
 
-  use JSON qw{decode_json};
   
   my $build_id = @ARGV[0];
   

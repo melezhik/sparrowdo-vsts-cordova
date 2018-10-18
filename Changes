@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Fix for BUILD_NOPATCHREVISION feature
+
 0.0.16  2018-10-17T20:30:32Z
 
     - Disable revision version patch feature

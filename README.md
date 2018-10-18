@@ -109,7 +109,7 @@ For example:
 
     Build.Default.Configuration = "debug" # Set debug configuration by default
 
-- Build.NoPatchVersion
+- Build.NoPatchRevision
 
 Disable revision version patching. Helpful when you create build for windows store.
 

@@ -16,8 +16,8 @@ if ($ENV{BUILD_NOPATCHREVISION}){
   print "set version ...\n";
   print "main version (taken from package.json) - $main_version ...\n";
   
-  system("npm run cordova-set-version -- -v $main_version.$revision")  == 0 
-    or die "npm run cordova-set-version -- -v $main_version.$revision failed: $?";
+  system("npm run cordova-set-version -- -v $main_version")  == 0 
+    or die "npm run cordova-set-version -- -v $main_version failed: $?";
 
 } else {
 
